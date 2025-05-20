@@ -1,73 +1,64 @@
-const carrito = [];
-let precioRemera = 20000;
-let precioBuzo = 40000;
-let precioPantalon = 30000;
-let precioCampera = 45000;
+// aca se van a almacenar todos los productos
+let carrito = [];
 
-while (true) {
-    let nombreProducto = parseInt(prompt("Tenemos: 1-Remeras | 2-Pantalones | 3-Buzos | 4-Camperas \nIngrese el número de la prenda que desea comprar: "));
+let carritoGuardado = localStorage.getItem("carrito");
 
-    // creamos los condicionales para establecer el precio de la prenda según eliga el usuario, pongo los condicionales aca para corroborar que el usuario ingrese el número de prenda correcto, porque sino va a mostrar los demas prompt (talle y cantidad)
-    if (nombreProducto == 1) {
-        precio = precioRemera,
-            nombreProducto = "Remera";
-    } else if (nombreProducto == 2) {
-        precio = precioPantalon,
-            nombreProducto = "Pantalon";
-    } else if (nombreProducto == 3) {
-        precio = precioBuzo,
-            nombreProducto = "Buzo";
-    } else if (nombreProducto == 4) {
-        precio = precioCampera,
-            nombreProducto = "Campera";
-    } else {
-        alert("Producto invalido, ingrese nuevamente el producto");
-        continue;
-    };
-
-    let talle = prompt("Ingrese el talle de la prenda: ").toUpperCase();
-    let cantidad = parseInt(prompt("Ingrese la cantidad: "));
-
-
-
-    // creamos el objeto producto para almacenar cada producto
-    let producto = {
-        nombreProducto: nombreProducto,
-        talle: talle,
-        precio: precio,
-        cantidad: cantidad,
-    };
-
-    // hacemos que cada producto que agregue el usuario se va a agregar al array carrito
-    carrito.push(producto);
-
-    let pregunta = prompt("Desea agregar mas productos al carrito? ").toLowerCase();
-
-    if (pregunta != "si") {
-        break;
-    };
-
-};
-
-console.log("---------------------------------- \nProductos del carrito: ");
-
-// recorremos el array carrito, y mostramos cada producto con sus respectivas caracteristicas
-for (let i = 0; i < carrito.length; i++) {
-    let prod = carrito[i];
-    console.log("Producto " + (i + 1) + ": " + prod.nombreProducto + "\n$" + prod.precio + "\nTalle:" + prod.talle + "\ncantidad:" + prod.cantidad);
-};
-
-// calculamos el total de todo con una funcion
-function calcularTotal() {
-    let total = 0
-    for (let i = 0; i < carrito.length; i++) {
-        total = total + carrito[i].precio * carrito[i].cantidad;
-
-    }
-    return total;
+if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
 }
 
-// invocamos a la funcion que calcula el total
-let total = calcularTotal();
+const botones = document.querySelectorAll("button");
+const lista = document.getElementById("lista");
+const total = document.getElementById("total");
+const botonVaciarCarrito = document.getElementById("vaciar-carrito");
 
-console.log("---------------------------------- \nTotal a pagar: $" + total);
+actualizarCarrito();
+
+botones.forEach(boton => {
+    // si el boton no es el de vaciar carrito, entonces agrega el producto al carrito
+    if (boton.id !== "vaciar-carrito") {
+        boton.addEventListener("click", () => {
+            let card = boton.closest(".card");
+            let producto = card.querySelector("h2").textContent;
+            let precioTexto = card.querySelector("p").textContent;
+
+            // hacemos que el precio que se muestra en el html pase a numero entero
+            let precio = parseInt(precioTexto.replace("$", "").replace(".", ""));
+
+            // agregamos el producto al array carrito
+            carrito.push({ nombre: producto, precio: precio });
+
+            // guardamos el carrito en el localStorage, convirtiendolo a texto
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+
+            // actualizamos el carrito
+            actualizarCarrito();
+            alert("¡Agregaste un producto al carrito!")
+        });
+    }
+});
+
+botonVaciarCarrito.addEventListener("click", () => {
+    // si se hace click en el boton "vaciar carrito", el array carrito se va a vaciar
+    carrito = []
+    // borramos el carrito del localStorage
+    localStorage.removeItem("carrito");
+    // actualizamos el carrito
+    actualizarCarrito();
+});
+
+function actualizarCarrito() {
+    // borra todo
+    lista.innerHTML = "";
+    let totalprecio = 0;
+
+    carrito.forEach(producto => {
+        let item = document.createElement("li");
+        item.textContent = producto.nombre + " - $" + producto.precio.toLocaleString();
+        lista.appendChild(item);
+        totalprecio = totalprecio + producto.precio;
+    });
+
+    total.textContent = "Total: $" + totalprecio.toLocaleString();
+
+};

@@ -4,13 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primer Entrega</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Segunda Entrega</title>
 </head>
 
 <body>
 
     <!-- Carrito de compras -->
     <!-- Consiste en que el usuario eliga prendas de ropa con sus respectivos detalles (talle y cantidad). Una vez elegidos los productos se va a calcular el total de los mismos y se va a mostrar un resumen detallado en consola -->
+
+    <h1>Carrito de compras</h1>
+
+    <div class="contenedor-productos">
+        <div class="card">
+            <img src="./img/chomba-web.webp" alt="chomba-polo-worldwide-bordada">
+            <h2>POLO WORLDWIDE BORDADA</h2>
+            <p>$45.000</p>
+            <div class="contenedor-boton">
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/buzo-web.webp" alt="buzo-oversize-montreal">
+            <h2>BUZO OVERSIZE MONTREAL</h2>
+            <p>$55.000</p>
+            <div class="contenedor-boton">
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/remera-web.webp" alt="remera-oversize-stick">
+            <h2>REMERA OVERSIZE STICK</h2>
+            <p>$35.000</p>
+            <div class="contenedor-boton">
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/ojotas-web.webp" alt="ojotas-tssy">
+            <h2>OJOTAS TSSY</h2>
+            <p>$42.000</p>
+            <div class="contenedor-boton">
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/camisa-web.webp" alt="camisa-gabardina-class">
+            <h2>CAMISA GABARDINA CLASS</h2>
+            <p>$48.000</p>
+            <div class="contenedor-boton">
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./img/baggy-web.webp" alt="jean-baggy-blue">
+            <h2>JEAN BAGGY BLUE</h2>
+            <p>$53.000</p>
+            <div class="contenedor-boton">
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-carrito">
+        <div class="info-carrito">
+            <h2>Resumen de la compra</h2>
+            <ul id="lista"></ul>
+            <p class="total-carrito" id="total">Total: $0</p>
+            <button class="boton-vaciar" id="vaciar-carrito">Vaciar carrito</button>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 
