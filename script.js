@@ -16,38 +16,44 @@ const iconoCarrito = document.querySelector(".fa-cart-shopping");
 const infoCarrito = document.querySelector(".info-carrito");
 const contadorCarrito = document.getElementById("contador-carrito");
 const botonPagar = document.getElementById("boton-pagar");
+const contenedorProductos = document.getElementById("contenedor-productos");
 
 // mostramos el carrito actualizado al iniciar
 actualizarCarrito();
 
-// manejamos el evento de click en los botones de productos
-botones.forEach(boton => {
-    if (boton.id !== "vaciar-carrito") {
-        boton.addEventListener("click", () => {
-            let card = boton.closest(".card");
-            let producto = card.querySelector("h2").textContent;
-            let precioTexto = card.querySelector("p").textContent;
-            let precio = parseInt(precioTexto.replace("$", "").replace(".", ""));
+// traemos los productos desde el json
+fetch("productos.json")
+    .then(res => res.json())
+    .then(data => {
+        data.forEach(producto => {
+            const card = document.createElement("div");
+            card.classList.add("card");
 
-            carrito.push({ nombre: producto, precio: precio });
+            card.innerHTML = `
+                <img src="${producto.img}" alt="${producto.nombre}">
+                <h2>${producto.nombre}</h2>
+                <p>$${producto.precio.toLocaleString()}</p>
+                <div class="contenedor-boton">
+                    <button class="boton-agregar">Agregar al carrito</button>
+                </div>
+            `;
 
-            localStorage.setItem("carrito", JSON.stringify(carrito));
+            contenedorProductos.appendChild(card);
 
-            actualizarCarrito();
+            const boton = card.querySelector("button");
+            boton.addEventListener("click", () => {
+                carrito.push({ nombre: producto.nombre, precio: producto.precio });
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+                actualizarCarrito();
 
-            // usamos Toastify para mostrar un mensaje de que se agrego un producto al carrito
-            Toastify({
-
-                text: "Producto agregado!",
-                backgroundColor: "#452b1a",
-                duration: 2000,
-
-            }).showToast();
-
+                Toastify({
+                    text: "Producto agregado!",
+                    backgroundColor: "#452b1a",
+                    duration: 2000,
+                }).showToast();
+            });
         });
-    }
-
-});
+    });
 
 // vaciar el carrito
 botonVaciarCarrito.addEventListener("click", () => {
@@ -56,7 +62,7 @@ botonVaciarCarrito.addEventListener("click", () => {
     actualizarCarrito();
 });
 
-// mostrar u ocultar el carrito al hacer click en el ícono
+// mostrar u ocultar el carrito al hacer click en el icono
 iconoCarrito.addEventListener("click", () => {
     infoCarrito.classList.toggle("mostrar-carrito");
 });
@@ -68,7 +74,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// función para actualizar el contenido del carrito
+// funcion para actualizar el contenido del carrito
 function actualizarCarrito() {
     lista.innerHTML = "";
     let totalprecio = 0;
@@ -99,7 +105,7 @@ botonPagar.addEventListener("click", () => {
     Swal.fire({
         title: 'Procesando pago...',
         didOpen: () => {
-            // cargando el pago icono
+            // icono de cargando el pago
             Swal.showLoading();
         },
     });

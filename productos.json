@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "img": "./img/chomba-web.webp",
+        "nombre": "Polo worldwide bordada",
+        "precio": 45000
+    },
+    {
+        "id": 2,
+        "img": "./img/buzo-web.webp",
+        "nombre": "Buzo oversize montreal",
+        "precio": 55000
+    },
+    {
+        "id": 3,
+        "img": "./img/remera-web.webp",
+        "nombre": "Remera oversize stick",
+        "precio": 35000
+    },
+    {
+        "id": 4,
+        "img": "./img/ojotas-web.webp",
+        "nombre": "Ojotas tssy",
+        "precio": 42000
+    },
+    {
+        "id": 5,
+        "img": "./img/camisa-web.webp",
+        "nombre": "Camisa gabardina class",
+        "precio": 48000
+    },
+    {
+        "id": 6,
+        "img": "./img/baggy-web.webp",
+        "nombre": "Jean baggy blue",
+        "precio": 53000
+    },
+    {
+        "id": 7,
+        "img": "./img/baggy-bermuda-negra.jpg",
+        "nombre": "Bermuda baggy gabardina",
+        "precio": 45000
+    },
+    {
+        "id": 8,
+        "img": "./img/buzo-azul-bussy.png",
+        "nombre": "Buzo oversize bussy",
+        "precio": 72100
+    },
+    {
+        "id": 9,
+        "img": "./img/medias-clean.png",
+        "nombre": "Medias clean",
+        "precio": 10400
+    },
+    {
+        "id": 10,
+        "img": "./img/jean-marron-op.jpg",
+        "nombre": "Jean baggy harv",
+        "precio": 60050
+    },
+    {
+        "id": 11,
+        "img": "./img/remera-negra-trasera.png",
+        "nombre": "Remera oversize republic",
+        "precio": 38000
+    },
+    {
+        "id": 12,
+        "img": "./img/jean-pro.png",
+        "nombre": "Jean baggy methal",
+        "precio": 65000
+    },
+    {
+        "id": 13,
+        "img": "./img/buzo-cierre-negro-delantero.png",
+        "nombre": "Buzo combinado progress",
+        "precio": 72800
+    },
+    {
+        "id": 14,
+        "img": "./img/buzo-celeste-trasero.png",
+        "nombre": "Buzo oversize gg",
+        "precio": 58800
+    }
+]
