@@ -5,78 +5,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="estilo.css">
-    <title>Segunda Entrega</title>
+    <title>Tercera Entrega</title>
 </head>
 
 <body>
 
-    <!-- Carrito de compras -->
-    <!-- Consiste en que el usuario eliga prendas de ropa con sus respectivos detalles (talle y cantidad). Una vez elegidos los productos se va a calcular el total de los mismos y se va a mostrar un resumen detallado en consola -->
+    <header>
+        <div class="contenedor-barra">
+            <a href="#"><img src="./img/logo-tussy-web.webp" alt=""></a>
+            <div class="icono-carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="contador-carrito" class="contador">0</span>
+                <div class="info-carrito">
+                    <h2>Carrito</h2>
+                    <ul class="lista-productos"></ul>
+                    <p class="total-carrito" id="total">Total: $0</p>
+                    <button class="boton-vaciar" id="vaciar-carrito">Vaciar Carrito</button>
+                    <button class="boton-vaciar" id="boton-pagar">Pagar</button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <h1>Carrito de compras</h1>
+    <main>
+        <div class="contenedor-productos">
+            <div class="card">
+                <img src="./img/chomba-web.webp" alt="chomba-polo-worldwide-bordada">
+                <h2>Polo worldwide bordada</h2>
+                <p>$45.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/buzo-web.webp" alt="buzo-oversize-montreal">
+                <h2>Buzo oversize montreal</h2>
+                <p>$55.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/remera-web.webp" alt="remera-oversize-stick">
+                <h2>Remera oversize stick</h2>
+                <p>$35.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/ojotas-web.webp" alt="ojotas-tssy">
+                <h2>Ojotas tssy</h2>
+                <p>$42.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/camisa-web.webp" alt="camisa-gabardina-class">
+                <h2>Camisa gabardina class</h2>
+                <p>$48.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/baggy-web.webp" alt="jean-baggy-blue">
+                <h2>Jean baggy blue</h2>
+                <p>$53.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/baggy-bermuda-negra.jpg" alt="baggy-bermuda-negra">
+                <h2>Bermuda baggy gabardina</h2>
+                <p>$45.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/buzo-azul-bussy.png" alt="buzo-azul-bussy">
+                <h2>Buzo oversize bussy</h2>
+                <p>$72.100</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/medias-clean.png" alt="medias-clean">
+                <h2>Medias clean</h2>
+                <p>$10.400</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/jean-marron-op.jpg" alt="jean-baggy-marron-harv">
+                <h2>Jean baggy harv</h2>
+                <p>$60.050</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/remera-negra-trasera.png" alt="remera-oversize-republic">
+                <h2>Remera oversize republic</h2>
+                <p>$38.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/jean-pro.png" alt="jean-baggy-methal">
+                <h2>Jean baggy methal</h2>
+                <p>$65.000</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/buzo-cierre-negro-delantero.png" alt="buzo-cierre-negro-delantero">
+                <h2>Buzo combinado progress</h2>
+                <p>$72.800</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./img/buzo-celeste-trasero.png" alt="buzo-oversize-gg">
+                <h2>Buzo oversize gg</h2>
+                <p>$58.800</p>
+                <div class="contenedor-boton">
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
 
-    <div class="contenedor-productos">
-        <div class="card">
-            <img src="./img/chomba-web.webp" alt="chomba-polo-worldwide-bordada">
-            <h2>POLO WORLDWIDE BORDADA</h2>
-            <p>$45.000</p>
-            <div class="contenedor-boton">
-                <button>Agregar al carrito</button>
-            </div>
         </div>
-        <div class="card">
-            <img src="./img/buzo-web.webp" alt="buzo-oversize-montreal">
-            <h2>BUZO OVERSIZE MONTREAL</h2>
-            <p>$55.000</p>
-            <div class="contenedor-boton">
-                <button>Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./img/remera-web.webp" alt="remera-oversize-stick">
-            <h2>REMERA OVERSIZE STICK</h2>
-            <p>$35.000</p>
-            <div class="contenedor-boton">
-                <button>Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./img/ojotas-web.webp" alt="ojotas-tssy">
-            <h2>OJOTAS TSSY</h2>
-            <p>$42.000</p>
-            <div class="contenedor-boton">
-                <button>Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./img/camisa-web.webp" alt="camisa-gabardina-class">
-            <h2>CAMISA GABARDINA CLASS</h2>
-            <p>$48.000</p>
-            <div class="contenedor-boton">
-                <button>Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./img/baggy-web.webp" alt="jean-baggy-blue">
-            <h2>JEAN BAGGY BLUE</h2>
-            <p>$53.000</p>
-            <div class="contenedor-boton">
-                <button>Agregar al carrito</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="contenedor-carrito">
-        <div class="info-carrito">
-            <h2>Resumen de la compra</h2>
-            <ul id="lista"></ul>
-            <p class="total-carrito" id="total">Total: $0</p>
-            <button class="boton-vaciar" id="vaciar-carrito">Vaciar carrito</button>
-        </div>
-    </div>
+    </main>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="script.js"></script>
 
 </body>
